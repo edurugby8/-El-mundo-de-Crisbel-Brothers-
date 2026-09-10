@@ -1,1 +1,559 @@
-# -El-mundo-de-Crisbel-Brothers-
+[crisbel-life-propuesta.html](https://github.com/user-attachments/files/32071625/crisbel-life-propuesta.html)
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+<title>El Mundo de Crisbel</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Karla:wght@400;500;600;700&display=swap">
+</head>
+<body>
+
+<!--
+  ===================================================================
+  PROPUESTA DE DISENO - Pagina de enlaces para @crisbel.life
+  CodeCraft - estudio digital
+
+  COMO PERSONALIZARLA (todo esta agrupado para que sea facil):
+   1) COLORES ....... bloque :root, mas abajo (--paper, --rose, --indigo...)
+   2) FOTO .......... busca la marca  [FOTO]  y sustituye el marco por
+                      una etiqueta img con la clase  photo-img
+   3) ENLACES REALES  busca la marca  [ENLACES REALES]
+   4) EJEMPLOS ...... busca la marca  [EJEMPLOS]. Hoy son etiquetas div,
+                      no enlaces: no navegan a ningun sitio a proposito.
+   5) TEXTOS ........ todo el copy esta escrito en el HTML, sin JS.
+  ===================================================================
+-->
+
+<style>
+  /* ── 1) SISTEMA DE DISEÑO ────────────────────────────────────── */
+  :root{
+    color-scheme: light;
+
+    /* Paleta: papel cálido + tinta índigo (magia) + rosa empolvado */
+    --paper:      #FBF4EF;
+    --paper-soft: #F6EAE1;
+    --sand:       #EFDFD3;
+    --ink:        #241F3A;
+    --ink-soft:   #5B5470;
+    --indigo:     #332F63;
+    --indigo-2:   #45407D;
+    --rose:       #C4767E;
+    --rose-deep:  #A85C67;
+    --gold:       #B98A3E;
+
+    /* Tipografía */
+    --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --body: "Karla", ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+
+    --col: 30rem;          /* ancho de la columna */
+    --r: 18px;             /* radio base */
+    --shadow: 0 1px 2px rgba(36,31,58,.05), 0 10px 24px -14px rgba(36,31,58,.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page{
+    max-width: var(--col);
+    margin-inline: auto;
+    padding-inline: 20px;
+    padding-block: 14px 0;
+  }
+
+  h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 500; text-wrap: balance; }
+
+  a { color: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--rose-deep);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  .eyebrow{
+    font-size: .688rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ── 2) AVISO SUPERIOR (honestidad de la demo) ───────────────── */
+  .ribbon{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .ribbon span{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 13px 6px;
+    border: 1px solid rgba(185,138,62,.42);
+    border-radius: 999px;
+    background: rgba(255,255,255,.5);
+    color: #7A5A22;
+    font-size: .625rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .ribbon .dot{ width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+  /* ── 3) CABECERA: EL ESCENARIO ───────────────────────────────── */
+  .stage{
+    position: relative;
+    overflow: hidden;
+    border-radius: 26px;
+    padding: 34px 24px 32px;
+    text-align: center;
+    color: var(--paper);
+    background:
+      radial-gradient(120% 85% at 50% -10%, #4C4691 0%, rgba(76,70,145,0) 62%),
+      linear-gradient(180deg, var(--indigo-2) 0%, var(--indigo) 58%, #2B2755 100%);
+    box-shadow: 0 20px 44px -26px rgba(36,31,58,.68);
+  }
+  /* trama de puntos muy tenue, como papel impreso */
+  .stage::before{
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.16) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: .5;
+    pointer-events: none;
+  }
+  .stage > * { position: relative; }
+
+  .sparkles{
+    position: absolute; inset: 0;
+    pointer-events: none;
+    color: var(--gold);
+    opacity: .85;
+  }
+
+  /* [FOTO] marco arqueado — aquí irá su fotografía */
+  .photo{
+    width: 132px;
+    margin: 0 auto 20px;
+    aspect-ratio: 3 / 3.7;
+    border-radius: 999px 999px 14px 14px;
+    border: 1px dashed rgba(240,214,168,.62);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.03));
+    display: grid;
+    place-items: center;
+    padding: 10px;
+  }
+  .photo-img{                      /* clase lista para la foto real */
+    width: 132px; max-width: 100%;
+    aspect-ratio: 3 / 3.7;
+    object-fit: cover;
+    border-radius: 999px 999px 14px 14px;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  .photo .slot-note{
+    font-size: .594rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: rgba(245,231,214,.72);
+    max-width: 12ch;
+  }
+  .photo svg{ margin-bottom: 8px; }
+
+  .handle{
+    font-family: var(--display);
+    font-optical-sizing: auto;
+    font-size: clamp(2.15rem, 11vw, 2.9rem);
+    font-weight: 300;
+    letter-spacing: -.02em;
+    line-height: 1.02;
+    color: #FDF6EE;
+  }
+  .handle em{
+    font-style: italic;
+    font-weight: 400;
+    color: #F3D8AE;
+  }
+
+  .stage-name{
+    margin: 14px 0 0;
+    font-family: var(--body);
+    font-size: .813rem;
+    letter-spacing: .05em;
+    color: rgba(238,226,240,.86);
+  }
+
+  .themes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    color: #F0DDBB;
+  }
+  .themes span{ font-size: .688rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; }
+  .themes i{ width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: .7; }
+
+  /* ── 4) ENLACES ──────────────────────────────────────────────── */
+  .links{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .section-label{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 30px 0 -2px;
+    color: var(--ink-soft);
+  }
+  .section-label::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(185,138,62,.45), rgba(185,138,62,0));
+  }
+
+  /* botón principal */
+  .cta{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 66px;
+    padding: 14px 18px;
+    border-radius: var(--r);
+    background: linear-gradient(180deg, var(--rose) 0%, var(--rose-deep) 100%);
+    color: #FFF8F4;
+    text-decoration: none;
+    box-shadow: 0 14px 30px -18px rgba(168,92,103,.95), inset 0 1px 0 rgba(255,255,255,.28);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .cta:hover{ box-shadow: 0 18px 34px -16px rgba(168,92,103,.9), inset 0 1px 0 rgba(255,255,255,.34); }
+  .cta .ico{ flex: none; }
+  .cta .txt{ flex: 1; min-width: 0; }
+  .cta .t{ font-family: var(--display); font-size: 1.19rem; font-weight: 500; line-height: 1.2; display: block; }
+  .cta .s{ font-size: .75rem; letter-spacing: .03em; color: rgba(255,246,242,.85); display: block; margin-top: 2px; }
+  .cta .arrow{ flex: none; opacity: .9; transition: transform .25s ease; }
+  .cta:hover .arrow{ transform: translateX(3px); }
+
+  /* enlace real secundario */
+  .link{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 62px;
+    padding: 12px 16px;
+    border-radius: var(--r);
+    background: #FFFDFB;
+    border: 1px solid var(--sand);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .link:hover{ border-color: rgba(185,138,62,.5); }
+  .link .ico{ flex: none; color: var(--indigo); }
+  .link .t{ font-family: var(--display); font-size: 1.06rem; font-weight: 500; display: block; line-height: 1.25; }
+  .link .s{ font-size: .75rem; color: var(--ink-soft); display: block; margin-top: 1px; }
+  .link .txt{ flex: 1; min-width: 0; }
+  .link .arrow{ flex: none; color: var(--ink-soft); transition: transform .25s ease; }
+  .link:hover .arrow{ transform: translateX(3px); }
+
+  @media (hover: hover){
+    .cta:hover, .link:hover{ transform: translateY(-2px); }
+  }
+
+  /* [EJEMPLOS] tarjetas provisionales — no navegan */
+  .slot{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 15px 16px;
+    border-radius: var(--r);
+    border: 1px dashed rgba(91,84,112,.32);
+    background: linear-gradient(180deg, rgba(255,253,251,.7), rgba(246,234,225,.55));
+    cursor: default;
+  }
+  .slot > span:last-child{ flex: 1; min-width: 0; }
+  .slot .num{
+    flex: none;
+    width: 26px; height: 26px;
+    margin-top: 2px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(185,138,62,.45);
+    color: var(--gold);
+    font-size: .625rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .slot .t{
+    font-family: var(--display);
+    font-size: 1.03rem;
+    font-weight: 500;
+    color: rgba(36,31,58,.78);
+    display: block;
+    line-height: 1.3;
+  }
+  .slot .s{ font-size: .781rem; color: var(--ink-soft); display: block; margin-top: 3px; }
+  .slot .tag{
+    display: inline-block;
+    margin-top: 9px;
+    padding: 3px 9px 4px;
+    border-radius: 999px;
+    background: rgba(185,138,62,.13);
+    color: #7A5A22;
+    font-size: .594rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .slots-note{
+    margin: 12px 2px 0;
+    font-size: .75rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* ── 5) CIERRE ───────────────────────────────────────────────── */
+  .closing{
+    margin-top: 44px;
+    text-align: center;
+  }
+  .divider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  .divider::before, .divider::after{
+    content: "";
+    width: 52px; height: 1px;
+    background: linear-gradient(90deg, rgba(185,138,62,0), rgba(185,138,62,.6));
+  }
+  .divider::after{ transform: scaleX(-1); }
+
+  .closing p{
+    margin: 0 auto;
+    max-width: 24ch;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.31rem;
+    line-height: 1.45;
+    color: rgba(36,31,58,.86);
+  }
+  .closing .sig{
+    margin-top: 16px;
+    font-size: .813rem;
+    letter-spacing: .06em;
+    color: var(--ink-soft);
+  }
+
+  footer{
+    margin-top: 40px;
+    padding-block: 20px 34px;
+    border-top: 1px solid var(--sand);
+    text-align: center;
+    color: var(--ink-soft);
+  }
+  footer .note{
+    font-size: .688rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #7A5A22;
+  }
+  footer .studio{
+    margin-top: 9px;
+    font-size: .75rem;
+    letter-spacing: .02em;
+  }
+  footer .studio strong{ font-weight: 600; color: var(--ink); }
+
+  /* ── 6) ESCRITORIO ───────────────────────────────────────────── */
+  @media (min-width: 700px){
+    :root{ --col: 34rem; }
+    .page{ padding-block: 40px 0; }
+    .stage{ padding: 44px 34px 40px; }
+    .photo, .photo-img{ width: 148px; }
+  }
+
+  /* ── 7) MOVIMIENTO (respetando la preferencia del sistema) ───── */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{ animation: rise .62s cubic-bezier(.22,.68,.3,1) both; }
+    .d1{ animation-delay: .05s } .d2{ animation-delay: .13s }
+    .d3{ animation-delay: .21s } .d4{ animation-delay: .29s }
+    .d5{ animation-delay: .35s } .d6{ animation-delay: .41s }
+    .d7{ animation-delay: .47s } .d8{ animation-delay: .53s }
+    @keyframes rise{
+      from{ opacity: 0; translate: 0 10px; }
+      to{ opacity: 1; translate: 0 0; }
+    }
+    .sparkles .tw{ animation: tw 4.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .sparkles .tw:nth-child(2){ animation-delay: 1.4s }
+    .sparkles .tw:nth-child(3){ animation-delay: 2.6s }
+    .sparkles .tw:nth-child(4){ animation-delay: .8s }
+    @keyframes tw{
+      0%, 100%{ opacity: .35; transform: scale(.92); }
+      50%{ opacity: 1; transform: scale(1.06); }
+    }
+  }
+</style>
+
+<main class="page">
+
+  <div class="ribbon reveal d1">
+    <span><i class="dot"></i> Propuesta de diseño</span>
+  </div>
+
+  <!-- ═══ CABECERA ═══ -->
+  <header class="stage reveal d2">
+    <svg class="sparkles" viewBox="0 0 320 300" aria-hidden="true" fill="currentColor">
+      <path class="tw" d="M40 54l3.2 8.6L52 66l-8.8 3.4L40 78l-3.2-8.6L28 66l8.8-3.4z"/>
+      <path class="tw" d="M282 96l2.4 6.4L291 105l-6.6 2.6L282 114l-2.4-6.4L273 105l6.6-2.6z"/>
+      <path class="tw" d="M268 34l2 5.4L275.4 42 270 44l-2 5.4-2-5.4L260.6 42 266 40z"/>
+      <path class="tw" d="M52 218l2 5.4L59.4 226 54 228l-2 5.4-2-5.4L44.6 226 50 224z"/>
+    </svg>
+
+    <!-- [FOTO] Sustituir este bloque por una imagen con class="photo-img" -->
+    <div class="photo">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(243,216,174,.75)"
+           stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 18V9a3 3 0 0 1 3-3h.7l1-1.7a1.4 1.4 0 0 1 1.2-.7h4.2a1.4 1.4 0 0 1 1.2.7l1 1.7h.7a3 3 0 0 1 3 3v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/>
+        <circle cx="12" cy="12.4" r="3.4"/>
+      </svg>
+      <span class="slot-note">Espacio para su fotografía</span>
+    </div>
+
+    <h1 class="handle">@crisbel<em>.life</em></h1>
+    <p class="stage-name">El mundo de Crisbel &amp; Brothers</p>
+
+    <div class="themes" aria-label="Bromas, manualidades y magia">
+      <span>Bromas</span><i></i><span>Manualidades</span><i></i><span>Magia</span>
+    </div>
+  </header>
+
+  <!-- ═══ ENLACES REALES ═══ -->
+  <!-- [ENLACES REALES] -->
+  <nav class="links" aria-label="Enlaces">
+
+    <a class="cta reveal d3" href="https://www.instagram.com/crisbel.life/" target="_blank" rel="noopener noreferrer">
+      <span class="ico" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="5.2"/>
+          <circle cx="12" cy="12" r="4.1"/>
+          <circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="txt">
+        <span class="t">Descubre mi Instagram</span>
+        <span class="s">@crisbel.life · el día a día</span>
+      </span>
+      <span class="arrow" aria-hidden="true">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h13M13 6l6 6-6 6"/>
+        </svg>
+      </span>
+    </a>
+
+    <a class="link reveal d4" href="https://www.youtube.com/@crisbellife" target="_blank" rel="noopener noreferrer">
+      <span class="ico" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+          <path d="M10.4 9.6 15 12l-4.6 2.4z" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="txt">
+        <span class="t">Canal de YouTube</span>
+        <span class="s">Enlace real, tomado de su biografía</span>
+      </span>
+      <span class="arrow" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h13M13 6l6 6-6 6"/>
+        </svg>
+      </span>
+    </a>
+  </nav>
+
+  <!-- ═══ EJEMPLOS ═══ -->
+  <div class="section-label eyebrow reveal d5">Así se verían sus próximos enlaces</div>
+
+  <!-- [EJEMPLOS] No llevan a ninguna parte a proposito. Para activarlos,
+       cambiar cada div.slot por un enlace con class="link" y su href -->
+  <div class="links" role="list" aria-label="Tarjetas de ejemplo, sin enlace">
+
+    <div class="slot reveal d6" role="listitem">
+      <span class="num" aria-hidden="true">1</span>
+      <span>
+        <span class="t">Un vídeo destacado</span>
+        <span class="s">Aquí podría ir el vídeo que quiera poner por delante esa semana, con su miniatura.</span>
+        <span class="tag">Contenido de ejemplo</span>
+      </span>
+    </div>
+
+    <div class="slot reveal d7" role="listitem">
+      <span class="num" aria-hidden="true">2</span>
+      <span>
+        <span class="t">Manualidades paso a paso</span>
+        <span class="s">Un espacio reservado para guías, plantillas o descargables, si algún día le apetece.</span>
+        <span class="tag">Próximamente</span>
+      </span>
+    </div>
+
+    <div class="slot reveal d8" role="listitem">
+      <span class="num" aria-hidden="true">3</span>
+      <span>
+        <span class="t">Contacto profesional</span>
+        <span class="s">Un botón para que le escriban, con la dirección que ella nos indique.</span>
+        <span class="tag">Próximamente</span>
+      </span>
+    </div>
+  </div>
+
+  <p class="slots-note">
+    Estas tres tarjetas son maquetas: no llevan a ninguna página y no hay ningún
+    formulario que envíe mensajes. Están aquí solo para imaginar el resultado final.
+  </p>
+
+  <!-- ═══ CIERRE ═══ -->
+  <section class="closing">
+    <div class="divider" aria-hidden="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.6l2.6 6.8 6.8 2.6-6.8 2.6L12 21.4l-2.6-6.8L2.6 12l6.8-2.6z"/>
+      </svg>
+    </div>
+    <p>Un rincón propio para todo lo que ya hace cada día.</p>
+    <div class="sig">@crisbel.life</div>
+  </section>
+
+  <footer>
+    <div class="note">Propuesta de diseño · Enlaces de ejemplo</div>
+    <div class="studio">Maqueta preparada por <strong>CodeCraft</strong> · estudio digital, Ourense</div>
+  </footer>
+
+</main>
+
+</body>
+</html>
