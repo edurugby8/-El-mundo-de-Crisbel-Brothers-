@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+<title>Media Kit de Crisbel</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Karla:wght@400;500;600;700&display=swap">
+</head>
+<body>
+
+<!--
+  ===================================================================
+  MEDIA KIT - Estructura propuesta para @crisbel.life
+  CodeCraft - estudio digital
+
+  IMPORTANTE: ninguna cifra de este documento es real. Todos los datos
+  van como huecos marcados "PENDIENTE" a la espera de sus estadisticas.
+
+  COMO RELLENARLO:
+   - Cada dato vive en un elemento con la clase  dato
+   - Para dar un dato por bueno: quitar la clase  vacio  y escribir
+     el valor dentro de  span.v  (la etiqueta PENDIENTE desaparece sola)
+   - Los colores estan en el bloque :root
+  ===================================================================
+-->
+
+<style>
+  :root{
+    color-scheme: light;
+
+    --paper:      #FBF4EF;
+    --card:       #FFFDFB;
+    --sand:       #EFDFD3;
+    --sand-deep:  #E2CDBD;
+    --ink:        #241F3A;
+    --ink-soft:   #5B5470;
+    --ink-faint:  #8C8499;
+    --indigo:     #332F63;
+    --indigo-2:   #45407D;
+    --rose:       #C4767E;
+    --rose-deep:  #A85C67;
+    --gold:       #B98A3E;
+    --gold-ink:   #7A5A22;
+
+    --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --body: "Karla", ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+
+    --col: 52rem;
+    --r: 16px;
+  }
+
+  *, *::before, *::after{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .doc{
+    max-width: var(--col);
+    margin-inline: auto;
+    padding-inline: 20px;
+    padding-block: 18px 0;
+  }
+
+  h1, h2, h3{ margin: 0; font-family: var(--display); font-weight: 500; text-wrap: balance; }
+
+  :focus-visible{ outline: 2px solid var(--rose-deep); outline-offset: 3px; border-radius: 6px; }
+
+  .eyebrow{
+    font-size: .688rem;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  /* ── aviso de documento provisional ─────────────────────────── */
+  .banner{
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 12px 15px;
+    border: 1px solid rgba(185,138,62,.4);
+    border-radius: 12px;
+    background: rgba(185,138,62,.07);
+    color: var(--gold-ink);
+    font-size: .781rem;
+    line-height: 1.5;
+    margin-bottom: 26px;
+  }
+  .banner b{ display: block; letter-spacing: .1em; text-transform: uppercase; font-size: .656rem; margin-bottom: 2px; }
+  .banner .mark{ flex: none; margin-top: 1px; }
+
+  /* ── cabecera ───────────────────────────────────────────────── */
+  header.top{
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--sand-deep);
+  }
+  .portrait{
+    flex: none;
+    width: 104px;
+    aspect-ratio: 3 / 3.7;
+    border-radius: 999px 999px 12px 12px;
+    border: 1px dashed rgba(185,138,62,.6);
+    background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(239,223,211,.55));
+    display: grid;
+    place-items: center;
+    padding: 9px;
+    text-align: center;
+  }
+  .portrait span{
+    font-size: .563rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: var(--gold-ink);
+  }
+  .portrait-img{                    /* clase lista para la foto real */
+    width: 104px; max-width: 100%;
+    aspect-ratio: 3 / 3.7;
+    object-fit: cover;
+    border-radius: 999px 999px 12px 12px;
+    display: block;
+  }
+  .who{ flex: 1; min-width: 220px; }
+  .who .kicker{
+    display: inline-block;
+    padding: 3px 10px 4px;
+    border-radius: 999px;
+    background: var(--indigo);
+    color: #F3D8AE;
+    font-size: .594rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .who h1{
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-top: 12px;
+  }
+  .who h1 em{ font-style: italic; font-weight: 400; color: var(--rose-deep); }
+  .who .sub{ margin-top: 8px; font-size: .875rem; color: var(--ink-soft); }
+  .who .themes{
+    margin-top: 12px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 9px;
+    color: var(--gold-ink);
+    font-size: .656rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 700;
+  }
+  .who .themes i{ width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: .6; }
+
+  /* ── secciones ──────────────────────────────────────────────── */
+  section{ padding-block: 34px; border-bottom: 1px solid var(--sand); }
+  section:last-of-type{ border-bottom: 0; }
+  .head{ display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+  .head::after{ content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(226,205,189,.9), rgba(226,205,189,0)); }
+  .lead{ margin: 0 0 18px; max-width: 62ch; color: var(--ink-soft); font-size: .938rem; }
+
+  /* ── huecos de dato ─────────────────────────────────────────── */
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 640px){ .grid{ grid-template-columns: repeat(3, 1fr); } }
+
+  .dato{
+    padding: 15px 15px 13px;
+    border: 1px solid var(--sand-deep);
+    border-radius: var(--r);
+    background: var(--card);
+  }
+  .dato .v{
+    display: block;
+    font-family: var(--display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .dato .k{
+    display: block;
+    margin-top: 5px;
+    font-size: .719rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+  .dato.vacio{
+    border-style: dashed;
+    border-color: rgba(140,132,153,.45);
+    background: linear-gradient(180deg, rgba(255,253,251,.6), rgba(239,223,211,.35));
+  }
+  .dato.vacio .v{ color: var(--ink-faint); }
+  .dato.vacio .k{ color: var(--ink-faint); }
+  .dato .pend{ display: none; }
+  .dato.vacio .pend{
+    display: inline-block;
+    margin-top: 9px;
+    padding: 2px 8px 3px;
+    border-radius: 999px;
+    background: rgba(185,138,62,.14);
+    color: var(--gold-ink);
+    font-size: .563rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* ── lista de pares etiqueta / valor ────────────────────────── */
+  .pares{ margin: 0; display: flex; flex-direction: column; gap: 2px; }
+  .par{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-block: 10px;
+    border-bottom: 1px dotted rgba(140,132,153,.4);
+  }
+  .par:last-child{ border-bottom: 0; }
+  .par dt{ font-weight: 600; font-size: .875rem; flex: none; min-width: 9rem; }
+  .par dd{ margin: 0; flex: 1; color: var(--ink-faint); font-size: .875rem; }
+  .par dd.lleno{ color: var(--ink); }
+
+  /* ── formatos ───────────────────────────────────────────────── */
+  .formatos{ display: grid; gap: 10px; grid-template-columns: 1fr; }
+  @media (min-width: 640px){ .formatos{ grid-template-columns: 1fr 1fr; } }
+  .fmt{
+    padding: 14px 15px;
+    border: 1px solid var(--sand-deep);
+    border-radius: var(--r);
+    background: var(--card);
+  }
+  .fmt b{ font-family: var(--display); font-size: 1.03rem; font-weight: 500; display: block; }
+  .fmt span{ display: block; margin-top: 3px; font-size: .781rem; color: var(--ink-soft); line-height: 1.5; }
+
+  /* ── contenido destacado ────────────────────────────────────── */
+  .piezas{ display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr); }
+  .pieza{
+    aspect-ratio: 4 / 5;
+    border: 1px dashed rgba(140,132,153,.45);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,253,251,.6), rgba(239,223,211,.4));
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    text-align: center;
+    font-size: .594rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.5;
+  }
+
+  /* ── contacto ───────────────────────────────────────────────── */
+  .contacto{
+    padding: 20px;
+    border-radius: var(--r);
+    background: linear-gradient(180deg, var(--indigo-2), var(--indigo));
+    color: #F5EAE0;
+  }
+  .contacto h2{ color: #FDF6EE; font-size: 1.31rem; }
+  .contacto p{ margin: 8px 0 0; font-size: .875rem; color: rgba(243,232,222,.82); max-width: 48ch; }
+  .contacto .campo{
+    margin-top: 14px;
+    padding: 11px 14px;
+    border: 1px dashed rgba(243,216,174,.5);
+    border-radius: 10px;
+    font-size: .75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(243,216,174,.85);
+  }
+
+  footer{
+    padding-block: 24px 36px;
+    text-align: center;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--sand);
+    margin-top: 8px;
+  }
+  footer .note{
+    font-size: .688rem; letter-spacing: .13em; text-transform: uppercase;
+    font-weight: 700; color: var(--gold-ink);
+  }
+  footer .studio{ margin-top: 8px; font-size: .75rem; }
+  footer .studio strong{ color: var(--ink); font-weight: 600; }
+
+  @media (min-width: 700px){
+    .doc{ padding-block: 42px 0; }
+    .portrait, .portrait-img{ width: 124px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .rise{ animation: rise .55s cubic-bezier(.22,.68,.3,1) both; }
+    .r1{ animation-delay: .04s } .r2{ animation-delay: .1s } .r3{ animation-delay: .16s }
+    @keyframes rise{ from{ opacity: 0; translate: 0 8px } to{ opacity: 1; translate: 0 0 } }
+  }
+</style>
+
+<main class="doc">
+
+  <div class="banner rise r1">
+    <svg class="mark" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9.2"/><path d="M12 7.6v5.2M12 16.3h.01"/>
+    </svg>
+    <span>
+      <b>Propuesta de estructura · Datos pendientes</b>
+      Ninguna cifra de este documento es real todavía. Los huecos marcados se rellenan
+      con las estadísticas que ella exporte de Instagram y YouTube.
+    </span>
+  </div>
+
+  <header class="top rise r2">
+    <!-- [FOTO] Sustituir por una imagen con class="portrait-img" -->
+    <div class="portrait"><span>Foto de perfil</span></div>
+
+    <div class="who">
+      <span class="kicker">Media kit</span>
+      <h1>@crisbel<em>.life</em></h1>
+      <p class="sub">El mundo de Crisbel &amp; Brothers · Instagram y YouTube</p>
+      <div class="themes"><span>Bromas</span><i></i><span>Manualidades</span><i></i><span>Magia</span></div>
+    </div>
+  </header>
+
+  <section class="rise r3">
+    <div class="head"><h2 class="eyebrow">Quién está detrás</h2></div>
+    <p class="lead">
+      Espacio para tres o cuatro líneas escritas por ella: qué es el proyecto, quién
+      aparece, qué tono tiene y qué la diferencia. Es el párrafo que más pesa cuando
+      una marca decide si encaja, así que conviene que suene a ella y no a plantilla.
+    </p>
+    <dl class="pares">
+      <div class="par"><dt>Plataformas</dt><dd class="lleno">Instagram · YouTube</dd></div>
+      <div class="par"><dt>Temáticas</dt><dd class="lleno">Bromas, manualidades y magia en familia</dd></div>
+      <div class="par"><dt>Idioma</dt><dd class="lleno">Español</dd></div>
+      <div class="par"><dt>Ubicación</dt><dd>Pendiente de confirmar con ella</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="head"><h2 class="eyebrow">Las cifras</h2></div>
+    <p class="lead">
+      Estos seis datos son los que pide prácticamente cualquier marca. Se sacan de
+      «Estadísticas» en la cuenta profesional de Instagram y de YouTube Studio.
+    </p>
+    <div class="grid">
+      <div class="dato vacio"><span class="v">—</span><span class="k">Seguidores en Instagram</span><span class="pend">Pendiente</span></div>
+      <div class="dato vacio"><span class="v">—</span><span class="k">Suscriptores en YouTube</span><span class="pend">Pendiente</span></div>
+      <div class="dato vacio"><span class="v">—</span><span class="k">Cuentas alcanzadas (30 días)</span><span class="pend">Pendiente</span></div>
+      <div class="dato vacio"><span class="v">—</span><span class="k">Reproducciones medias por reel</span><span class="pend">Pendiente</span></div>
+      <div class="dato vacio"><span class="v">—</span><span class="k">Interacción media</span><span class="pend">Pendiente</span></div>
+      <div class="dato vacio"><span class="v">—</span><span class="k">Publicaciones al mes</span><span class="pend">Pendiente</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2 class="eyebrow">Quién la ve</h2></div>
+    <p class="lead">
+      A una marca le importa más a quién llegas que a cuántos. Todo esto sale de la
+      pestaña de audiencia de sus estadísticas.
+    </p>
+    <dl class="pares">
+      <div class="par"><dt>Género</dt><dd>Pendiente</dd></div>
+      <div class="par"><dt>Franja de edad principal</dt><dd>Pendiente</dd></div>
+      <div class="par"><dt>Países y ciudades</dt><dd>Pendiente</dd></div>
+      <div class="par"><dt>Horas de mayor actividad</dt><dd>Pendiente</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="head"><h2 class="eyebrow">Contenido destacado</h2></div>
+    <p class="lead">
+      Tres piezas que ella elija: las que mejor funcionaron o las que mejor explican
+      lo que hace. Con su miniatura, un dato de alcance y el enlace.
+    </p>
+    <div class="piezas">
+      <div class="pieza">Pieza 1<br>Pendiente</div>
+      <div class="pieza">Pieza 2<br>Pendiente</div>
+      <div class="pieza">Pieza 3<br>Pendiente</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2 class="eyebrow">Formatos de colaboración</h2></div>
+    <p class="lead">
+      Esto es una propuesta de partida, no una oferta suya: hay que repasarlo con ella
+      y quedarnos solo con lo que de verdad quiera hacer. Los precios van aparte, en el
+      correo, nunca en el documento.
+    </p>
+    <div class="formatos">
+      <div class="fmt"><b>Reel de marca</b><span>Una pieza en su tono, publicada en su perfil.</span></div>
+      <div class="fmt"><b>Historias</b><span>Secuencia con enlace o código de descuento.</span></div>
+      <div class="fmt"><b>Publicación colaborativa</b><span>Firmada por ella y por la marca a la vez.</span></div>
+      <div class="fmt"><b>Contenido para la marca</b><span>Material grabado por ella para que lo use la marca.</span></div>
+      <div class="fmt"><b>Vídeo en YouTube</b><span>Integración dentro de un vídeo del canal.</span></div>
+      <div class="fmt"><b>Pack de campaña</b><span>Varias piezas coordinadas durante un periodo.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2 class="eyebrow">Condiciones y límites</h2></div>
+    <p class="lead">
+      Un apartado corto pero importante: qué tipo de marcas acepta, qué no hace, qué
+      decide mostrar de su familia y con cuánta antelación necesita recibir los encargos.
+      Poner los límites por escrito ahorra conversaciones incómodas después.
+    </p>
+    <dl class="pares">
+      <div class="par"><dt>Sectores que acepta</dt><dd>Pendiente</dd></div>
+      <div class="par"><dt>Lo que no hace</dt><dd>Pendiente</dd></div>
+      <div class="par"><dt>Aparición de menores</dt><dd>Pendiente — lo decide ella</dd></div>
+      <div class="par"><dt>Plazos de entrega</dt><dd>Pendiente</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="contacto">
+      <h2>Hablemos</h2>
+      <p>Cierre del documento: una línea de invitación y la dirección a la que quiere
+        que le escriban las marcas.</p>
+      <div class="campo">Correo de contacto · pendiente</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="note">Propuesta de estructura · Datos de ejemplo pendientes</div>
+    <div class="studio">Preparado por <strong>CodeCraft</strong> · estudio digital, Ourense</div>
+  </footer>
+
+</main>
+
+</body>
+</html>
